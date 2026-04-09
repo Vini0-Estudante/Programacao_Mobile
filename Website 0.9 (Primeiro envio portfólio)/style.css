@@ -1,0 +1,696 @@
+/* Fontes e corpo */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+@font-face {
+    font-family: "VCR_OSD_MONO";
+    src:
+        url("VCR_OSD_MONO.woff2") format("woff2"),
+        url("VCR_OSD_MONO.woff") format("woff"),
+        url("VCR_OSD_MONO.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@keyframes piscar {
+    0% {
+        background-color: lightgray;
+    }
+
+    50% {
+        background-color: rgb(205, 235, 71);
+    }
+
+    100% {
+        background-color: lightgray;
+    }
+}
+
+.titulo {
+    color: black;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 darkgray,
+        -1px 1px 0 darkgray,
+        1px 1px 0 darkgray;
+}
+
+body {
+    font-family: "VCR_OSD_MONO";
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.05) 3px);
+    pointer-events: none;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #9a0e0f;
+    text-align: center;
+    font-size: 130%;
+    border: 2px black solid;
+    border-bottom: black solid 5px;
+}
+
+.align {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    font-size: 120%;
+    margin: auto;
+    background-color: lightgray;
+    border: 5px solid black;
+}
+
+/* Buttons Pessoal */
+.Bpessoal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 95%;
+    height: 100%;
+    padding: 20px;
+    justify-items: stretch;
+    gap: 5px;
+    margin-top: 25px;
+
+}
+
+.button-link-gridB {
+    display: flex;
+    color: black;
+    background-color: lightgrey;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: "VCR_OSD_MONO";
+    position: relative;
+    border: solid 4px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+}
+
+.button-link-gridB:hover {
+    background-color: rgb(211, 198, 198);
+    transform: scale(1.05);
+}
+
+.button-link-gridB:active {
+    animation: piscar 0.3s linear 3;
+}
+
+.Bpessoal a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Bpessoal .button-link-gridB {
+    width: 85%;
+    height: 120px;
+    z-index: 1;
+}
+
+.Bpessoal .button-link-gridB .span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.Bpessoal .button-link-gridB span {
+    display: inline-block;
+    transition: transform 0.2 ease;
+}
+
+.Bpessoal .button-link-gridB:hover span {
+    transform: scale(1.2);
+}
+
+.grid3:has(.desc:target) .overlay {
+    display: block;
+}
+
+.desc {
+    display: none;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.desc:target {
+    display: block;
+}
+
+/* Matérias */
+.materias {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: lightgray;
+    margin: auto;
+    justify-items: stretch;
+    grid-auto-rows: 90px;
+    gap: 5px;
+    border-top: solid;
+    border-bottom: solid;
+}
+
+.materias .button-link-grid span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.materias .button-link-grid:hover span {
+    transform: scale(1.2);
+}
+
+.materias .button-link-grid:active {
+    animation: piscar 0.3s linear 3;
+}
+
+.materias a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-link-grid {
+    display: flex;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: "VCR_OSD_MONO";
+    position: relative;
+    border: solid 4px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.button-link-grid:hover {
+    background-color: rgb(211, 198, 198);
+    transform: scale(1.05);
+}
+
+.itemcentral {
+    grid-column: 2;
+}
+
+/* Conteúdo das matérias */
+.conteudo {
+    display: none;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.conteudo p{
+    margin-top: 1%;
+}
+
+.conteudo:target {
+    display: block;
+}
+
+/* Dropdown container - mantém o espaço e alinhamento do grid */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    /* Ocupa toda a largura do grid cell */
+}
+
+/* Checkbox escondido */
+#menu-toggle {
+    display: none;
+}
+
+/* Botão do dropdown */
+.dropbtn {
+    display: inline-block;
+    background: none;
+    border: none;
+    font-size: 120%;
+    cursor: pointer;
+    font-family: "VCR_OSD_MONO";
+    width: 100%;
+    transition: transform 0.2s ease;
+    /* Preenche a largura da caixa cinza */
+    padding: 8px 0;
+    box-sizing: border-box;
+    /* inclui padding na largura */
+    text-align: center;
+}
+
+.dropbtn:hover {
+    transform: scale(1.1);
+}
+
+/* Conteúdo do dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* logo abaixo do botão */
+    left: 0;
+    width: 100%;
+    /* igual a largura da caixa pai (.dropdown) */
+    background-color: lightgray;
+    border: 5px solid black;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+/* Links dentro do dropdown */
+.dropdown-content a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    font-family: "VCR_OSD_MONO";
+}
+
+.dropdown-content a:hover {
+    transform: scale(1.1);
+}
+
+/* Mostra o dropdown quando checkbox marcado */
+#menu-toggle:checked+.dropbtn+.dropdown-content {
+    display: block;
+}
+
+/* Geral */
+.drop {
+    background-color: white;
+}
+
+.center {
+    text-align: center;
+    margin: 1%;
+}
+
+.window {
+    background-color: white;
+    width: 80%;
+    height: 90vh;
+    margin: 40px auto;
+    border: 4px solid black;
+    min-height: 80vh;
+    border-radius: 2px;
+    box-shadow:
+        0 0 0 2px white,
+        0 0 0 8px black;
+
+    transition: 0.4s ease;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.contentFrame {
+    width: 99%;
+    height: 65%;
+    border: none;
+    display: flex;
+}
+
+.window .desc {
+    margin-top: auto;
+}
+
+/* Pop Ups*/
+
+.popup {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 999;
+
+}
+
+.popup:target {
+
+    display: flex;
+
+}
+
+.popup:target~.overlay {
+
+    display: block;
+    background-color: rgb(0, 0, 0, 0.5);
+
+}
+
+.popup-window {
+
+    background: white;
+
+    padding: 10px;
+
+    border: 3px solid black;
+    border-radius: 2px;
+    box-shadow:
+        0 0 0 2px white,
+        0 0 0 8px black;
+
+    width: 600px;
+
+}
+
+
+.popup header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+
+}
+
+
+.close {
+
+    text-decoration: none;
+
+    background: red;
+
+    color: white;
+
+    padding: 5px 10px;
+
+    font-weight: bold;
+
+}
+
+.close:hover {
+    background-color: rgb(0, 0, 0, 0.5);
+}
+.popup:target ~ .overlay{
+
+display:block;
+
+}
+
+/* Borders */
+
+.border {
+    border: solid;
+    position: relative;
+}
+
+.borderT {
+    border-top: solid 4px black;
+    position: relative;
+}
+
+.borderL {
+    border-left: solid 4px black;
+    position: relative;
+}
+
+.borderR {
+    border-right: solid 4px black;
+    position: relative;
+}
+
+.borderB {
+    border-bottom: solid 4px black;
+    position: relative;
+}
+
+/*Sizes*/
+
+.size120 {
+    font-size: 120%;
+}
+
+.size150 {
+    font-size: 150%;
+}
+
+.size200 {
+    font-size: 200%;
+}
+
+/* Paddings */
+
+.padding5 {
+    padding: 5%;
+}
+
+.padding3 {
+    padding: 3%;
+}
+
+.padding1 {
+    padding: 1%;
+}
+
+.padding2{
+    padding: 2%;
+}
+
+.padding-top {
+    padding-top: 2%;
+}
+
+.padding-right {
+    padding-right: 20%;
+}
+
+.padding-left {
+    padding-left: 20%;
+}
+
+
+
+/* Margins */
+
+.margin-top {
+    margin-top: 5%;
+}
+
+.margin-bottom {
+    margin-bottom: 5%;
+}
+
+.margin-left {
+    margin-left: 5%;
+}
+
+/* Grid layouts */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid3 {
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+    gap: 20px;
+    transition: grid-template-columns 0.4s ease;
+    position: relative;
+}
+
+.grid4 {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.grid3:has(.desc:target) {
+    grid-template-columns: 3fr 2fr;
+}
+
+
+.button-link {
+    display: inline-block;
+    padding: 8px 16px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: "VCR_OSD_MONO";
+    position: relative;
+    margin: auto 0;
+}
+
+.button-link-back {
+    display: inline-block;
+    padding: 8px 16px;
+    color: black;
+    text-decoration: none;
+    border: black solid 4px;
+    cursor: pointer;
+    font-family: "VCR_OSD_MONO";
+    background-color: lightgray;
+    margin-left: 2%;
+    margin-top: 0.5%;
+    font-size: 150%;
+    transition: 0.2s ease;
+}
+
+.button-link-back:hover {
+    transform: scale(1.1);
+}
+
+.button-link-back:active {
+    animation: piscar 0.3s linear 3;
+}
+
+a {
+    font-size: 120%;
+}
+
+.OrgImg {
+    border: black solid;
+    margin: 1%;
+}
+
+.flex {
+    display: flex;
+}
+
+.texto {
+    text-align: center;
+}
+
+.listaPrincipal {
+    display: inline-block;
+    text-align: left;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.conteudo-flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 2;
+    background: rgb(0, 0, 0, 0.9);
+}
+
+/*Player da musica*/
+
+.music-player {
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 120px;
+    height: 120px;
+
+    background: lightgray;
+    border: solid 4px black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+}
+
+/*Disco*/
+
+.disc {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+
+    /* disco (vinil) */
+    background: radial-gradient(circle, black 20%, #444 40%, black 60%);
+
+    animation: spin 3s linear infinite;
+}
+
+/* capa no centro */
+.disc::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: url('imgs/CD.jpg') center/cover no-repeat;
+}
+
+.disc.paused {
+    animation-play-state: paused;
+}
+
+table{
+    margin: 20px auto;
+}
+.resize{
+    
+}
+
+@keyframes spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Portfólio</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/imgs/TittleIcon.png">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body style="background-image: url(imgs/wp2.jpeg);">
+
+    <!-- PLAYER DE MÚSICA INVISÍVEL  (* = Trava) -->
+
+    <iframe id="musicFrame" src="player.html" style="position:fixed;width:1px;height:1px;border:none;"
+        allow="autoplay">
+    </iframe>
+
+
+    <div class="window">
+
+        <header class="padding2">
+            <h1 class="titulo">Portfólio</h1>
+        </header>
+
+        <h2 class="center">Links:</h2>
+
+        <div class="align">
+
+            <div class="borderR">
+                <a href="pages/pessoal.html" target="contentFrame" class="dropbtn button-link">
+                    Pessoal
+                </a>
+            </div>
+
+            <div class="dropdown size2">
+
+                <input type="checkbox" id="menu-toggle" hidden>
+
+                <label for="menu-toggle" class="dropbtn">
+                    Acadêmico
+                </label>
+
+                <div class="dropdown-content">
+
+                    <a href="pages/ano1.html" target="contentFrame">
+                        1° Ano
+                    </a>
+
+                    <div class="borderB"></div>
+
+                    <a href="pages/ano2.html" target="contentFrame">
+                        2° Ano
+                    </a>
+
+                    <div class="borderB"></div>
+
+                    <a href="pages/ano3.html" target="contentFrame">
+                        3° Ano
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="size borderL">
+                <a href="pages/projetos.html" target="contentFrame" class="dropbtn button-link">
+                    Projetos
+                </a>
+            </div>
+
+        </div>
+
+        <!-- ÁREA ONDE AS PÁGINAS CARREGAM -->
+
+        <iframe name="contentFrame" src="pages/home.html" class="contentFrame">
+        </iframe>
+
+    </div>
+
+    <!-- POPUPS -->
+
+    <div id="curriculo" class="popup">
+
+        <div class="popup-window">
+
+            <header class="padding3">
+                <h2 class="titulo">Currículo</h2>
+                <a href="#" class="close">X</a>
+            </header>
+
+            <div style="max-height:70vh; overflow-y:auto; border-radius:8px; margin-top:1.6em;">
+                <iframe src="https://www.canva.com/design/DAGDXfllyJg/6lY60kIMaZYhLOB3CZ-yfw/view?embed"
+                    style="width:100%; height:600px; border:none;" loading="lazy" allowfullscreen>
+                </iframe>
+            </div>
+
+            <a class="resize" href="https://www.canva.com/design/DAGDXfllyJg/6lY60kIMaZYhLOB3CZ-yfw/view"
+                target="_blank">
+                Currículo para estágio de Vinícius Valério
+            </a>
+
+        </div>
+
+    </div>
+
+    <div id="certificados" class="popup">
+
+        <div class="popup-window">
+
+            <header class="padding3">
+
+                <h2 class="titulo">Certificações</h2>
+
+                <a href="#" class="close">X</a>
+
+            </header>
+
+            <p>Certificados aqui.</p>
+
+        </div>
+
+    </div>
+
+
+    <div id="premios" class="popup">
+
+        <div class="popup-window">
+
+            <header class="padding3">
+
+                <h2 class="titulo">Premiações</h2>
+
+                <a href="#" class="close">X</a>
+
+            </header>
+
+            <p>Alguma das premiações aqui.</p>
+
+        </div>
+
+    </div>
+
+
+    <div id="gostos" class="popup">
+
+        <div class="popup-window">
+
+            <header class="padding3">
+
+                <h2 class="titulo">Gostos</h2>
+
+                <a href="#" class="close">X</a>
+
+            </header>
+
+            <p>Eu gosto muito de vários jogos indie, tais como:
+            <ol class="margin-left">
+                <li>Hollow Knight</li>
+                <li>The Binding of Isaac</li>
+                <li>Silksong</li>
+            </ol>
+            entre outros... Também gosto muito de escutar musicas de gêneros como metal, rock, eletrônica as vezes,
+            e
+            mais.
+            <br>
+            Estou aprendendo guitarra e com o tempo consigo ver a melhora nos meus hobbies.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- OVERLAY -->
+
+    <div class="overlay"></div>
+
+
+
+    <!-- PLAYER VISUAL -->
+
+    <div class="music-player" onclick="toggleMusic()">
+
+        <div id="disc" class="disc paused"></div>
+
+        <div id="icon" class="margin-top icon">▶</div>
+
+    </div>
+
+
+    <script>
+
+        let playing = false;
+
+        function toggleMusic() {
+
+            const iframe = document.getElementById("musicFrame");
+            const disc = document.getElementById("disc");
+            const icon = document.getElementById("icon");
+
+            if (playing) {
+
+                iframe.contentWindow.pauseMusic();
+
+                disc.classList.add("paused");
+
+                icon.textContent = "▶";
+
+            } else {
+
+                iframe.contentWindow.playMusic();
+
+                iframe.contentWindow.unmute();
+
+                disc.classList.remove("paused");
+
+                icon.textContent = "⏸";
+
+            }
+
+            playing = !playing;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

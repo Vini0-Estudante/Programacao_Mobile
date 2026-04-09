@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <iframe id="ytplayer" width="1" height="1"
+        src="https://www.youtube.com/embed/-cbJdC-pWFA?enablejsapi=1&autoplay=1&loop=1&playlist=-cbJdC-pWFA"
+        frameborder="0" allow="autoplay">
+    </iframe>
+
+    <script>
+
+        const player = document.getElementById("ytplayer");
+
+        function playMusic() {
+            player.contentWindow.postMessage(
+                '{"event":"command","func":"playVideo","args":""}',
+                "*"
+            );
+        }
+
+        function pauseMusic() {
+            player.contentWindow.postMessage(
+                '{"event":"command","func":"pauseVideo","args":""}',
+                "*"
+            );
+        }
+
+        function unmute() {
+            player.contentWindow.postMessage(
+                '{"event":"command","func":"unMute","args":""}',
+                "*"
+            );
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Nota 1: </label>
+    <input type="number" id="n1"><br>
+    <label>Nota 2: </label>
+    <input type="number" id="n2"><br>
+    <button onclick="calcular()">Calcular media</button><br>
+    <label>Media: </label> <label id="media"> * </label>
+
+    <script>
+        function calcular() {
+            n1 = parseFloat(document.getElementById("n1").value);
+            n2 = parseFloat(document.getElementById("n2").value);
+
+            if (n1 == "" || n2 == "") {
+                alert("Preencha todas as notas.")
+            }
+            else {
+                if (n1 < 0 || n2 < 0) {
+                    alert("Digite apenas números válidos.")
+                }
+                else {
+                    if (n1 > 10 || n2 > 10) {
+                        alert("Digite números entre 0 e 10 apenas.")
+                    }
+                    else {
+                        r = (n1 + n2) / 2;
+
+                        document.getElementById("media").innerHTML = r;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

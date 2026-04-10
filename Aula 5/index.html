@@ -13,7 +13,8 @@
     <label>Nota 2: </label>
     <input type="number" id="n2"><br>
     <button onclick="calcular()">Calcular media</button><br>
-    <label>Media: </label> <label id="media"> * </label>
+    <label>Media: </label> <label id="media"> * </label><br>
+    <label>Situação: </label> <label id="sit">*</label>
 
     <script>
         function calcular() {
@@ -35,6 +36,19 @@
                         r = (n1 + n2) / 2;
 
                         document.getElementById("media").innerHTML = r;
+                    }
+                }
+            }
+            if (r >= 7) {
+                document.getElementById("sit").innerHTML = "Aprovado."
+            }
+            else {
+                if (r >= 5) {
+                    document.getElementById("sit").innerHTML = "Recuperação."
+                }
+                else {
+                    if (r < 5 ) {
+                        document.getElementById("sit").innerHTML = "Reprovado."
                     }
                 }
             }

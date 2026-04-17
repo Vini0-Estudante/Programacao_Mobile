@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "VCR_OSD_MONO";
+    src:
+        url("VCR_OSD_MONO.woff2") format("woff2"),
+        url("VCR_OSD_MONO.woff") format("woff"),
+        url("VCR_OSD_MONO.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    font-family: "VCR_OSD_MONO";
+}
+
+
+header {
+    border: solid 3px;
+    margin: 1%;
+    margin-left: 2%;
+    padding: 0.5%;
+    font-size: 200%;
+}
+
+.gridnavi {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin: auto 5%;
+}
+
+.gridnavi a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: solid 4px black;
+    background-color: #4955ff;
+    color: black;
+    padding: 2%;
+}
+
+.gridnavi a:hover{
+    z-index: 10;
+    transform: scale(1.1);
+    transform: scaleY(1.3);
+}
+
+iframe {
+    font-family: "VCR_OSD_MONO";
+    border: #2d13c5 solid 6px;
+    border-top: #293aa7 solid 6px;
+    border-left: #293aa7 solid 6px;
+    background-color: #ebf5eed7;
+    padding: 10px;
+}
+

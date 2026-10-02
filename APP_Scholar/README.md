@@ -23,6 +23,25 @@ O projeto usa uma estrutura simplificada, separando as paginas de ação e consu
 Já as imagens e arquivos de mídia externos utilizados no código estão localizados na pasta "assets";
 A pasta "components" e alguns outros arquivos são padronizados da plataforma Snack, não foram apagados.
 
+## Estrutura visivel
+APP_Scholar/
+
+  ├── app_scholar_api/
+
+  ├── assets/
+
+  ├── components/
+
+  ├── pages/
+
+  ├── database/
+
+  ├── App.js
+
+  ├── README.md
+
+  └── arquivos de configuração
+
 ## Como executar
 Para executar o projeto basta baixar a pasta "app-scholar" e suas dependencias na pasta indicada, no caso atual de desenvolvimento (Postado em 25/09/2026) o projeto não tem dependências ainda.
 Após baixar os arquivos e a estrutura de paginas corretamente, os itens devem ser importados para o Snack -* https://snack.expo.dev/ *-

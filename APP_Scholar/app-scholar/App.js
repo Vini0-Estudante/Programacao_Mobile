@@ -40,6 +40,7 @@ import {
 /*API*/
 
 const API_ALUNOS = 'http://{IP da maquina}/app_scholar_api/alunos.php';
+const API_CURSOS = 'http://{IP da maquina}/app_scholar_api/cursos.php';
 
 export default function App() {
   const [telaAtual, setTelaAtual] = useState('Home');
@@ -63,6 +64,27 @@ export default function App() {
     };
 
     carregarAlunos();
+  }, []);
+
+  useEffect(() => {
+    const carregarCursos = async () => {
+      try {
+        const resposta = await fetch(API_CURSOS);
+
+        if (!resposta.ok) {
+          throw new Error('Erro ao acessar a API. (Cursos)');
+        }
+
+        const dados = await resposta.json();
+
+        setCursos(dados);
+      } catch (erro) {
+        console.error('Erro ao carregar cursos:', erro);
+        alert('Não foi possível carregar os cursos.');
+      }
+    };
+
+    carregarCursos();
   }, []);
 
   // BANCOS DE DADOS SIMULADOS
